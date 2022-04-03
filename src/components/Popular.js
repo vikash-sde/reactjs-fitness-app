@@ -7,12 +7,17 @@ const Popular = () => {
   const [popular, setPopular] = useState([]);
 
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-    );
-    const data = await api.json();
-    setPopular(data.recipes);
-    console.log(data.recipes);
+    const check = localStorage.getItem("popular");
+    if (check) {
+      setPopular(JSON.parse(check));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+      );
+      const data = await api.json();
+      setPopular(data.recipes);
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+    }
   };
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const Popular = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 4rem 1rem;
+  margin: 4rem 0rem;
 `;
 const Card = styled.div`
   min-height: 15rem;
