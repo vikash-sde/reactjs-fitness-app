@@ -6,7 +6,6 @@ import Veggies from '../components/Veggies';
 const Home = () => {
   return (
     <div>
-      <Category />
       <Popular />
       <Veggies />
     </div>
