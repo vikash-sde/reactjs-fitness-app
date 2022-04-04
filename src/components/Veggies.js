@@ -9,7 +9,7 @@ const Veggies = () => {
   const getVeggies = async () => {
     const check = localStorage.getItem("veggies");
     if (check) {
-      getVeggies(JSON.parse(check));
+      setVeggies(JSON.parse(check));
     } else {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags="vegetarian"`
