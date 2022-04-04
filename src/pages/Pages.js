@@ -1,12 +1,16 @@
-import React from 'react'
-import Home from './Home'
+import React from "react";
+import Cuisine from "./Cuisine";
+import Home from "./Home";
 
 const Pages = () => {
   return (
     <div>
-        <Home />
+      <Routes>
+        <Route path="/" component={<Home />} />
+        <Route path="/cuisine" component={<Cuisine />} />
+      </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default Pages
+export default Pages;
