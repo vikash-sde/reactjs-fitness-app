@@ -13,7 +13,13 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <FormSytle onSubmit={submitHandler}>
         <div>
           <FaSearch></FaSearch>
@@ -29,9 +35,7 @@ const Search = () => {
 };
 
 const FormSytle = styled.form`
-  margin: 0rem 24rem;
   position: relative;
-  width: 100%;
 
   input {
     border: none;
@@ -47,7 +51,7 @@ const FormSytle = styled.form`
   svg {
     position: absolute;
     top: 50%;
-    left: 1%;
+    left: 3%;
     transform: translate;
     color: white;
   }
